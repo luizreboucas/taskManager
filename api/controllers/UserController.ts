@@ -16,11 +16,10 @@ class UserController {
     try {
       const { nome, email, senha } = req.body;
       const hashedPassword = await hash(senha, 8);
-
-      const user = new User({ nome, email, hashedPassword });
+      const user = new User({ nome, email, senha: hashedPassword });
 
       if (await User.findOne({ email: email })) {
-        throw new Error('email já cadastrado');
+        res.status(401).json({message: 'email já cadastrado'})
       }
 
       user.save();
