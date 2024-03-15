@@ -1,0 +1,145 @@
+@import '/src/styles/variables.scss';
+
+.login {
+  margin-bottom: 20px;
+  margin-top: 100px;
+
+  .login-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .login-card {
+    align-items: center;
+    background-color: $yellow-logo;
+    color: $white;
+    height: 50vh;
+    margin: 0 auto;
+    width: 60vw;
+
+    &__title {
+      color: $white;
+      font-family: $lexend;
+      font-size: 1.25rem;
+      font-weight: 700;
+      padding: 20px;
+      padding-bottom: 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    &__divider {
+      background-color: $blue-logo-darkest;
+      margin: 0 auto;
+      width: 20vw;
+    }
+
+    &__align {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 30px;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+
+      &--left {
+        margin-left: 10px;
+        width: 30vw;
+      }
+    }
+
+    &__label {
+      color: $blue-logo-darkest;
+      font-family: $lexend;
+      font-size: 0.625rem;
+    }
+
+    &__input {
+      font-family: $lexend;
+      font-weight: 700;
+    }
+  }
+
+  .login-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+
+    &__save {
+      background-color: $blue-logo-darkest;
+      border: none;
+      border-radius: 4px;
+      color: $white;
+      font-family: $lexend;
+      font-weight: 600;
+      margin: 0 auto;
+      padding: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      width: 7vw;
+
+      &:hover {
+        background-color: $blue-logo;
+        cursor: pointer;
+      }
+    }
+
+    &__cancel {
+      background-color: $white-box;
+      border: none;
+      border-radius: 4px;
+      color: $blue-logo-darkest;
+      font-family: $lexend;
+      font-weight: 600;
+      margin: 0 auto;
+      padding: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      width: 7vw;
+
+      &:hover {
+        background-color: $white-hover;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .login-new-register {
+    font-family: $lexend;
+    font-weight: 500;
+
+    &__link {
+      font-family: $lexend;
+      font-weight: 700;
+
+      &:hover {
+        cursor: pointer;
+        color: $blue-logo;
+      }
+    }
+  }
+}
+
+.hint-left {
+  font-family: $lexend;
+  font-size: 0.55rem;
+  margin-left: 6px !important;
+  margin-top: -35px;
+}
+
+.button-password {
+  color: $blue-logo-darkest;
+
+  &:hover {
+    color: $yellow-logo;
+    cursor: pointer;
+  }
+}
