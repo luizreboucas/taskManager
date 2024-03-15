@@ -1,6 +1,6 @@
 <mat-toolbar class="header">
   <div class="header__items">
-    <span class="header__name" routerLink="/">iDiDiT!</span>
+    <span class="header__name" (click)="navigate('/')">iDiDiT!</span>
     <img
       class="header__logo"
       src="../../../../assets/img/ididit-logo.png"
@@ -8,6 +8,8 @@
     />
   </div>
   <div class="header__login">
-    <mat-icon class="header__login--icon" routerLink="/login">login</mat-icon>
+    <mat-icon class="header__login--icon" (click)="navigate('/login')"
+      >login</mat-icon
+    >
   </div>
 </mat-toolbar>
