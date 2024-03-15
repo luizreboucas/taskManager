@@ -7,7 +7,8 @@
   height: 70vh;
   margin: 0 auto;
   margin-top: 35px;
-  width: 70%;
+  padding: 20px 60px;
+  width: 50vw;
 
   .registration-header {
     margin: 0 auto;
@@ -106,8 +107,8 @@
   color: $blue-logo-darkest;
   font-family: $lexend;
   font-size: 0.7rem;
-  padding-top: 40px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   &--logo {
     font-family: $laleza;
@@ -129,11 +130,28 @@
   width: 164px;
   margin: 0 auto;
   margin-top: 5px;
+
+  &:hover {
+    background-color: $blue-logo;
+    cursor: pointer;
+  }
 }
 
-.button-register:hover {
-  background-color: $blue-logo;
-  cursor: pointer;
+.button-register-disabled {
+  align-items: center;
+  background-color: $gray-line;
+  border: none;
+  border-radius: 25px 10px;
+  color: $gray-darkest;
+  cursor: default;
+  font-family: $lexend;
+  font-weight: 700;
+  font-size: 1rem;
+  gap: 4px;
+  margin: 0 auto;
+  margin-top: 5px;
+  padding: 9px 16px;
+  width: 164px;
 }
 
 .button-password:hover {

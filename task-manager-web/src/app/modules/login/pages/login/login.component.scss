@@ -92,6 +92,21 @@
       }
     }
 
+    &__disabled {
+      background-color: $gray-line;
+      border: none;
+      border-radius: 4px;
+      color: $gray-darkest;
+      cursor: default;
+      font-family: $lexend;
+      font-weight: 600;
+      margin: 0 auto;
+      padding: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      width: 7vw;
+    }
+
     &__cancel {
       background-color: $white-box;
       border: none;

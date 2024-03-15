@@ -50,7 +50,15 @@
           </div>
         </form>
         <div class="login-buttons">
-          <button class="login-buttons__save" (click)="Login()">Acessar</button>
+          <button
+            [ngClass]="{
+              'login-buttons__save': loginForm.valid,
+              'login-buttons__disabled': loginForm.invalid
+            }"
+            (click)="Login()"
+          >
+            Acessar
+          </button>
           <button class="login-buttons__cancel" (click)="navigate('/')">
             Cancelar
           </button>

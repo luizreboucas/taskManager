@@ -31,7 +31,12 @@ export class RegistrationComponent {
     this.createRegistrationForm();
   }
 
-  createRegistrationForm(): void {
+  registerDataForm(): any {
+    // this.newUserStore.setFormValue(this.registrationForm.value);
+    console.log(this.registrationForm.value);
+  }
+
+  private createRegistrationForm(): void {
     this.registrationForm = this.fb.group({
       blocked: [false],
       nome: ['', [Validators.required, Validators.maxLength(100)]],
@@ -49,11 +54,6 @@ export class RegistrationComponent {
         ]
       ]
     });
-  }
-
-  registerDataForm(): any {
-    // this.newUserStore.setFormValue(this.registrationForm.value);
-    console.log(this.registrationForm.value);
   }
 
   private validatePassword(control: AbstractControl): ValidationErrors | null {
