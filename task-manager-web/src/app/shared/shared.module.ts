@@ -7,18 +7,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [
-    FooterComponent,
-    HeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatIconModule,
-  ],
-  exports: [
-    HeaderComponent,
-    FooterComponent
-  ]
+  declarations: [FooterComponent, HeaderComponent],
+  imports: [CommonModule, MatToolbarModule, MatIconModule],
+  exports: [HeaderComponent, FooterComponent]
 })
-export class SharedModule { }
+export class SharedModule {}

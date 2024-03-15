@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './mainframe-page.component.html',
   styleUrls: ['./mainframe-page.component.scss']
 })
-export class MainframePageComponent {
-
-}
+export class MainframePageComponent {}

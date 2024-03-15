@@ -1,11 +1,11 @@
-@import "/src/styles/variables.scss";
+@import '/src/styles/variables.scss';
 
 .header {
   color: $white;
   background-color: $blue-logo-darkest;
   box-shadow: 0 2px 5px $box-shadow;
   display: flex;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 700;
   flex-direction: row;
   height: 11vh;

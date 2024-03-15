@@ -4,12 +4,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
-  declarations: [
-    HomePageComponent
-  ],
-  imports: [
-    CommonModule,
-    MatDividerModule
-  ]
+  declarations: [HomePageComponent],
+  imports: [CommonModule, MatDividerModule]
 })
-export class HomeModule { }
+export class HomeModule {}

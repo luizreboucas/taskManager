@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomePageComponent,
+        component: HomePageComponent
       }
     ]
   }
@@ -20,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MainframeRoutingModule { }
+export class MainframeRoutingModule {}
