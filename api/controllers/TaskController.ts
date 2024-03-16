@@ -1,6 +1,7 @@
 import { Request, Response, query } from "express";
 import Task from "../models/taskModel";
 import User from "../models/userModel";
+import { getColorPrioridade } from "../services/getColorPrioridade";
 
 class TaskController {
 
@@ -26,7 +27,8 @@ class TaskController {
     static createTask = async(req: Request, res: Response) => {
         try {
             const {nome, descricao, prioridade, usuario} = req.body;
-            const task = new Task({nome,descricao,prioridade,usuario});
+            const cor = getColorPrioridade(prioridade);
+            const task = new Task({nome,descricao,prioridade,usuario, cor});
             task.save();
             res.status(201).json({message: 'task criada com sucesso', task})
         } catch (error) {
@@ -38,6 +40,9 @@ class TaskController {
         try {
             const taskId = req.params.taskId
             const newTaskData = req.body
+            if(newTaskData.prioridade) {
+                newTaskData.cor = getColorPrioridade(newTaskData.prioridade);
+            }
             await Task.findByIdAndUpdate(taskId, newTaskData);
             const updated = await Task.findById(taskId);
             res.status(200).json({message: 'tarefa atualizada com sucesso', task: updated})
