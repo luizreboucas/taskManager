@@ -1,0 +1,49 @@
+@import '/src/styles/variables.scss';
+
+.unauthorized {
+  display: flex;
+  align-items: center;
+  background: radial-gradient(
+    circle,
+    rgba(0, 133, 133, 1) 0%,
+    rgba(247, 193, 67, 1) 100%
+  );
+
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  height: 80vh;
+
+  &__title {
+    color: $blue-logo-darkest;
+    font-family: $lexend;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__img {
+    margin-top: 10px;
+    width: 13vw;
+  }
+
+  &__text {
+    font-family: $lexend;
+    margin: 10px 0 30px;
+  }
+
+  &__login-button {
+    background-color: $blue-logo-darkest;
+    border: none;
+    border-radius: 15px 10px;
+    color: $white;
+    font-family: $lexend;
+    font-weight: 700;
+    padding: 9px 13px;
+
+    &:hover {
+      background-color: $yellow-logo;
+      cursor: pointer;
+    }
+  }
+}

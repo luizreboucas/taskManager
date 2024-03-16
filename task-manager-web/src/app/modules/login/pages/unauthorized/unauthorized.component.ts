@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { Routes } from 'src/app/shared/enums/routes';
 
 @Component({
-  selector: 'app-registration-confirm',
-  templateUrl: './registration-confirm.component.html',
-  styleUrls: ['./registration-confirm.component.scss']
+  selector: 'app-unauthorized',
+  templateUrl: './unauthorized.component.html',
+  styleUrls: ['./unauthorized.component.scss']
 })
-export class RegistrationConfirmComponent {
+export class UnauthorizedComponent {
   constructor(private router: Router) {}
 
   navigateToLogin(): void {
