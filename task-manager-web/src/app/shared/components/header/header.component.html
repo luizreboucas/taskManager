@@ -1,11 +1,15 @@
 <mat-toolbar class="header">
   <div class="header__items">
-    <span class="header__name" (click)="navigate('/')">iDiDiT!</span>
+    <h1 class="header__name" (click)="navigate('/')">iDiDiT!</h1>
     <img
       class="header__logo"
       src="../../../../assets/img/ididit-logo.png"
       alt="Logo do sistema iDiDiT"
     />
+    <span *ngIf="isAuthenticated" class="header__page--align">
+      <span class="header__page--divider"></span>
+      <h2 class="header__page" (click)="navigate('/dashboard')">TO-DOs</h2>
+    </span>
   </div>
   <div class="header__login">
     <mat-icon

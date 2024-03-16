@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
-import { Routes } from '../../enums/routes';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements AfterContentChecked {
   isAuthenticated = false;
 
   constructor(
@@ -16,8 +15,7 @@ export class HeaderComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {}
 
-  ngOnInit(): void {
-    //TESTAR NECESSIDADE DO ONCHANGES
+  ngAfterContentChecked(): void {
     this.isAuthenticated = this.authenticationService.authenticated();
   }
 
