@@ -9,6 +9,10 @@
   overflow: auto;
   padding: 10px 20px;
 
+  &__container {
+    margin: 20px;
+  }
+
   &__title {
     color: $blue-logo;
     font-family: $laleza;
@@ -33,8 +37,7 @@
 
   &__logo {
     margin-bottom: 6px;
-    width: 25%;
-
+    width: 15vw;
     padding-bottom: 50px;
   }
 

@@ -139,7 +139,14 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button class="button-register" (click)="registerDataForm()">
+    <button
+      [disabled]="registrationForm.invalid"
+      [ngClass]="{
+        'button-register': registrationForm.valid,
+        'button-register-disabled': registrationForm.invalid
+      }"
+      (click)="registerDataForm()"
+    >
       CADASTRAR
     </button>
   </mat-card-actions>
