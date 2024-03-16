@@ -2,7 +2,7 @@ export interface Task {
   _id: string;
   nome: string;
   descricao: string;
-  prioridade: string;
+  prioridade: number;
   cor: string;
   usuario?: string;
 }
