@@ -1,15 +1,20 @@
-// Response do get:
 export interface Task {
-  id: number;
+  _id: string;
   nome: string;
   descricao: string;
   prioridade: number;
-  prioridadeCor: string;
+  prioridadeCor?: string;
+  usuario?: string;
 }
 
-// Request do post
 export interface NewTask {
   nome: string;
   descricao: string;
   prioridade: number;
+  usuario: string;
+}
+
+export interface NewTaskResponse {
+  message: string;
+  task: Task;
 }
