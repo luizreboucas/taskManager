@@ -2,8 +2,8 @@ export interface Task {
   _id: string;
   nome: string;
   descricao: string;
-  prioridade: number;
-  prioridadeCor?: string;
+  prioridade: string;
+  cor: string;
   usuario?: string;
 }
 

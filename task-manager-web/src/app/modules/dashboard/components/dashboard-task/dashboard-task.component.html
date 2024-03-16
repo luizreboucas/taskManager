@@ -13,8 +13,9 @@
 
     <mat-divider
       class="task-divider"
-      [ngStyle]="{ 'background-color': task.prioridadeCor }"
-    ></mat-divider>
+      [ngStyle]="{ 'background-color': task.cor }"
+    ></mat-divider
+    >a
 
     <mat-card-content class="task-description">
       <textarea
@@ -28,21 +29,21 @@
     <mat-card-actions class="task-actions">
       <mat-radio-group formControlName="prioridade">
         <mat-radio-button
-          [checked]="task.prioridade === 1"
+          [checked]="task.prioridade === '1'"
           value="1"
           class="radio-high-priority"
         >
           <span class="task-actions__radio-button">Alta</span>
         </mat-radio-button>
         <mat-radio-button
-          [checked]="task.prioridade === 2"
+          [checked]="task.prioridade === '2'"
           value="2"
           class="radio-medium-priority"
         >
           <span class="task-actions__radio-button">Média</span>
         </mat-radio-button>
         <mat-radio-button
-          [checked]="task.prioridade === 3"
+          [checked]="task.prioridade === '3'"
           value="3"
           class="radio-low-priority"
         >

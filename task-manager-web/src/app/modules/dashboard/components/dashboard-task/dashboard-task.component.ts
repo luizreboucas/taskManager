@@ -10,6 +10,7 @@ import { Task } from 'src/app/shared/interfaces/task.interface';
 export class DashboardTaskComponent implements OnInit {
   @Input() task!: Task;
 
+  corDivider = '';
   editForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -17,16 +18,21 @@ export class DashboardTaskComponent implements OnInit {
   ngOnInit(): void {
     this.buildForm();
 
-    this.editForm.valueChanges.subscribe((value: any) => {
-      console.log(value);
-    });
+    // TODO: Adicionar alternação de cores
+
+    // this.corDivider = this.task.cor;
+
+    // this.editForm.valueChanges.subscribe((value: any) => {
+    //   this.corDivider = value.cor;
+    // });
   }
 
   private buildForm(): void {
     this.editForm = this.fb.group({
       nome: [this.task.nome],
       descricao: [this.task.descricao],
-      prioridade: [this.task.prioridade]
+      prioridade: [this.task.prioridade],
+      cor: [this.task.cor]
     });
   }
 }
