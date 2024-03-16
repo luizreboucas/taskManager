@@ -8,8 +8,10 @@ class LoginController {
   static login = async (req: Request, res: Response) => {
     try {
       const { email, senha } = req.body;
+      if(!email || !senha) {
+        return res.status(404).json({message: "dados imcompletos"});
+      }
       const user = await User.findOne({ email: email });
-
       if (!user) {
         throw new Error('Usuário ou senha incorretos');
       }
@@ -21,7 +23,7 @@ class LoginController {
       }
 
       const token = sign({}, authConfig.jwt.secret, {
-        subject: user.id,
+        subject: user?._id.toString(),
         expiresIn: authConfig.jwt.expiresIn,
       });
 
