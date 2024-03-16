@@ -1,9 +1,16 @@
+import { Task } from 'src/app/shared/interfaces/task.interface';
 export interface User {
-  id?: number;
+  _id?: string;
   nome: string;
   email: string;
-  senha: string;
+  senha?: string;
+  tasks?: Task;
   // ver com os meninos blocked?: boolean;
+}
+
+export interface UserResponse {
+  message: string;
+  user: User;
 }
 
 export interface UserLogin {
@@ -11,7 +18,7 @@ export interface UserLogin {
   senha: string;
 }
 
-export interface UserResponse {
+export interface UserResponseToken {
   user: User;
   token: string;
 }

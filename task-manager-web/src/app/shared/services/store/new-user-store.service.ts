@@ -57,7 +57,7 @@ export class NewUserStoreService {
       this.authenticationService.login(userValue).subscribe({
         next: (request) => {
           localStorage.setItem('token', request.token);
-          localStorage.setItem('id', JSON.stringify(request.user.id));
+          localStorage.setItem('id', JSON.stringify(request.user._id));
           this.router.navigate([Routes.DASHBOARD]);
         },
         error: () => alert('Usuario não cadastrado')
