@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [FooterComponent, HeaderComponent],
@@ -23,7 +24,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDividerModule
+    MatDividerModule,
+    MatRadioModule
   ],
   exports: [
     HeaderComponent,
@@ -35,7 +37,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDividerModule
+    MatDividerModule,
+    MatRadioModule
   ]
 })
 export class SharedModule {}
