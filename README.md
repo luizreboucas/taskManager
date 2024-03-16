@@ -100,6 +100,7 @@ Esta rota é a responsável por retornar todas as task de um determinado usuári
 		"nome": "desentupir pia",
 		"prioridade": 2,
 		"descricao": "aplicar os métodos necessários",
+		"cor": "#FCA553",
 		"usuario": {
 			"_id": "65f0ada01ed5a9d85748f97f",
 			"nome": "joaquim",
@@ -115,6 +116,7 @@ Esta rota é a responsável por retornar todas as task de um determinado usuári
 		"nome": "lavar louça",
 		"prioridade": 2,
 		"descricao": "aplicar os métodos necessários",
+		"cor": "#FCA553",
 		"usuario": {
 			"_id": "65f0ada01ed5a9d85748f97f",
 			"nome": "joaquim",
@@ -158,6 +160,7 @@ Esta rota é a responsável por criar a task de um determinado usuário.
 	"task": {
 		"nome": "primeira atividade",
 		"prioridade": 1,
+		"cor": "#FCA553",
 		"descricao": "",
 		"usuario": "65f0c192ea3eca13804423d1",
 		"_id": "65f0c43d8c7eaf5c606b5e7d"
@@ -176,7 +179,7 @@ Esta rota é a responsável por atualizar a task de um determinado usuário.
 ```json
 {
 	"nome": "lavar louça",
-    "prioridade": 2
+    	"prioridade": 2
 }
 ```
 **Header**
@@ -194,6 +197,7 @@ Esta rota é a responsável por atualizar a task de um determinado usuário.
 		"_id": "65f0bd7dbb899e4ac8910817",
 		"nome": "lavar louça",
 		"prioridade": 2,
+		"cor": "#FCA553",
 		"descricao": "aplicar os métodos necessários",
 		"usuario": "65f0ada01ed5a9d85748f97f",
 		"__v": 0
