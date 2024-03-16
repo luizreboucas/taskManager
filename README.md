@@ -12,6 +12,14 @@ conforme o diagrama abaixo:
 
 ![image](https://github.com/luizreboucas/taskManager/assets/99728452/9fa6c542-1d6a-448d-bc7c-3c5a367e2c80)
 
+## Como Rodar o Projeto
+- **1.Navegue até a pasta da api**
+```cd /api```
+- **2.instale as dependências**
+```npm install```
+- **3.rode o projeto em máquina local**
+```npm start```
+
 ## Cadastro
 Cadastro é a primeira atividade exercida pelo cliente, uma vez que o cliente é cadastrado, ele pode fazer login e ser autenticado para realizar outras ações.
 
