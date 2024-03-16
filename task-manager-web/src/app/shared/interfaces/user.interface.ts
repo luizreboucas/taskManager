@@ -4,7 +4,7 @@ export interface User {
   nome: string;
   email: string;
   senha?: string;
-  tasks?: Task;
+  tasks?: Task[];
   // ver com os meninos blocked?: boolean;
 }
 
@@ -19,6 +19,9 @@ export interface UserLogin {
 }
 
 export interface UserResponseToken {
-  user: User;
-  token: string;
+  message: string;
+  result: {
+    user: User;
+    token: string;
+  };
 }
