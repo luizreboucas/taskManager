@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, debounceTime, filter } from 'rxjs';
 import { User, UserLogin } from '../../interfaces/user.interface';
 import { AuthenticationService } from '../authentication/authentication.service';
+import { Routes } from '../../enums/routes';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,7 @@ export class NewUserStoreService {
     ).subscribe((userValue) => {
       this.userService.postNewUser(userValue).subscribe({
         next: () => {
-          this.router.navigate(['/registration-confirm']);
+          this.router.navigate([Routes.REGISTRATION_CONFIRM]);
         },
         error: () => alert('Usuario não cadastrado')
       });
@@ -57,7 +58,7 @@ export class NewUserStoreService {
         next: (request) => {
           localStorage.setItem('token', request.token);
           localStorage.setItem('id', JSON.stringify(request.user.id));
-          this.router.navigate(['/dashboard']);
+          this.router.navigate([Routes.DASHBOARD]);
         },
         error: () => alert('Usuario não cadastrado')
       });

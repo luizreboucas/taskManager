@@ -8,7 +8,9 @@ import { Routes } from 'src/app/shared/enums/routes';
   styleUrls: ['./registration-confirm.component.scss']
 })
 export class RegistrationConfirmComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    console.log('apareci');
+  }
 
   navigateToLogin(): void {
     this.router.navigate([Routes.LOGIN]);
