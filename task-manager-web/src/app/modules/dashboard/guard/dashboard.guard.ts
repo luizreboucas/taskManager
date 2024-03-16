@@ -15,7 +15,6 @@ export class DashboardGuard {
 
   canActivate(): boolean {
     if (this.authenticationService.authenticated()) {
-      this.router.navigate([Routes.DASHBOARD]);
       return true;
     } else {
       this.router.navigate([Routes.UNAUTHORIZED]);
