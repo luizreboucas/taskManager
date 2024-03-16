@@ -7,10 +7,4 @@ import { Routes } from 'src/app/shared/enums/routes';
   templateUrl: './unauthorized.component.html',
   styleUrls: ['./unauthorized.component.scss']
 })
-export class UnauthorizedComponent {
-  constructor(private router: Router) {}
-
-  navigateToLogin(): void {
-    this.router.navigate([Routes.LOGIN]);
-  }
-}
+export class UnauthorizedComponent {}
