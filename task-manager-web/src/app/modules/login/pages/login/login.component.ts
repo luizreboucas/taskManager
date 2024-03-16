@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NewUserStoreService } from 'src/app/shared/services/store/new-user-store.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent {
   private description = '';
 
   constructor(
-    // private newUserStore: NewUserStoreService,
+    private newUserStore: NewUserStoreService,
     private router: Router,
     private fb: FormBuilder // private userService: UserListService, //public dialog: MatDialog
   ) {}
@@ -33,7 +34,8 @@ export class LoginComponent {
   }
 
   Login(): any {
-    //this.verifyBlock(this.loginForm.value.email);
+    this.newUserStore.setFormLoginValue(this.loginForm.value);
+    // this.verifyBlock(this.loginForm.value.email);
   }
 
   navigate(path: string): void {
