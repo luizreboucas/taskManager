@@ -74,7 +74,7 @@ export class RegistrationComponent {
   }
 
   get nome() {
-    return this.registrationForm.get('name');
+    return this.registrationForm.get('nome');
   }
 
   get email() {

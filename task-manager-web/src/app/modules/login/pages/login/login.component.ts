@@ -43,7 +43,7 @@ export class LoginComponent {
   private createLoginForm(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      senha: ['', [Validators.required]]
     });
   }
 
@@ -51,8 +51,8 @@ export class LoginComponent {
     return this.loginForm.get('email');
   }
 
-  get password() {
-    return this.loginForm.get('password');
+  get senha() {
+    return this.loginForm.get('senha');
   }
 
   // private verifyBlock(email: string): void {
