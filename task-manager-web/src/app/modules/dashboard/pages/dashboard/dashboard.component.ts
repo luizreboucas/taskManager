@@ -13,30 +13,23 @@ import { NewTaskComponent } from '../../modals/new-task/new-task.component';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  userData!: User;
   tasks: Task[] = [];
-
-  private subscriptions: Subscription[] = new Array<Subscription>();
+  userId!: string | null;
 
   constructor(
     private dashboardService: DashboardService,
-    private newUserStore: NewUserStoreService,
     private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.setSubscriptions();
+    this.getUserId();
     this.getTasks();
   }
-
-  // ngOnDestroy(): void {
-  //   this.subscriptions.forEach((sub) => sub.unsubscribe());
-  // }
 
   openModalNewTask(): void {
     this.dialog
       .open(NewTaskComponent, {
-        data: { usuario: this.userData._id },
+        data: { usuario: this.userId },
         width: '400px'
       })
       .afterClosed()
@@ -45,21 +38,19 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  private setSubscriptions(): void {
-    this.subscriptions.push(
-      this.newUserStore.userSubject$.subscribe((response: User) => {
-        this.userData = response;
-      })
-    );
+  private getUserId(): void {
+    this.userId = JSON.parse(localStorage.getItem('id') as string);
   }
 
   private getTasks(): void {
-    if (this.userData._id) {
+    if (this.userId) {
       this.dashboardService
-        .getTasksByUser(this.userData._id as string)
+        .getTasksByUser(this.userId)
         .subscribe((tasksByUser: Task[]) => {
           this.tasks = tasksByUser;
         });
     }
+
+    // TODO: Adicionar tratativa para quando não houver ID
   }
 }

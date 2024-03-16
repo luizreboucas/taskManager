@@ -16,7 +16,6 @@ import { Routes } from '../../enums/routes';
 export class NewUserStoreService {
   private formListenerSubject!: BehaviorSubject<User>;
   private formLoginListenerSubject!: BehaviorSubject<UserLogin>;
-  private userSubject!: BehaviorSubject<User>;
 
   constructor(
     private userService: UserService,
@@ -27,14 +26,9 @@ export class NewUserStoreService {
     this.formLoginListenerSubject = new BehaviorSubject<UserLogin>(
       {} as UserLogin
     );
-    this.userSubject = new BehaviorSubject<User>({} as User);
 
     this.initFormListener();
     this.loginListener();
-  }
-
-  get userSubject$() {
-    return this.userSubject.asObservable();
   }
 
   setFormValue(formValue: User): void {
@@ -72,7 +66,6 @@ export class NewUserStoreService {
           next: (request: UserResponseToken) => {
             localStorage.setItem('token', request.result.token);
             localStorage.setItem('id', JSON.stringify(request.result.user._id));
-            this.userSubject.next(request.result.user);
             this.router.navigate([Routes.DASHBOARD]);
           },
           error: () => alert('Usuario não cadastrado')
