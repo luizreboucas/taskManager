@@ -9,7 +9,11 @@
     src="../../../../assets/img/ididit-logo.png"
     alt="Logo do sistema iDiDiT"
   />
-  <button class="home__registration" (click)="navigateToRegistration()">
+  <button
+    *ngIf="!isAuthenticated"
+    class="home__registration"
+    (click)="navigateToRegistration()"
+  >
     Criar conta
   </button>
 </div>

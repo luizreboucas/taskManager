@@ -31,7 +31,7 @@
               class="login-card__input"
               matInput
               [type]="showPassword ? 'text' : 'password'"
-              formControlName="password"
+              formControlName="senha"
               type="password"
               autocomplete="off"
             />
@@ -43,8 +43,8 @@
               {{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon
             >
           </mat-form-field>
-          <div *ngIf="password?.touched && password?.errors" class="hint-left">
-            <mat-hint class="hint-left" *ngIf="password?.errors?.['required']">
+          <div *ngIf="senha?.touched && senha?.errors" class="hint-left">
+            <mat-hint class="hint-left" *ngIf="senha?.errors?.['required']">
               A senha é obrigatória.
             </mat-hint>
           </div>

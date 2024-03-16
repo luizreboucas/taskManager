@@ -7,6 +7,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorInterceptor } from './core/interceptor/interceptor.interceptor';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,9 +19,16 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Routes } from 'src/app/shared/enums/routes';
 
 @Component({
   selector: 'app-registration-confirm',
@@ -7,9 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration-confirm.component.scss']
 })
 export class RegistrationConfirmComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    console.log('apareci');
+  }
 
   navigateToLogin(): void {
-    this.router.navigate(['/login']);
+    this.router.navigate([Routes.LOGIN]);
   }
 }

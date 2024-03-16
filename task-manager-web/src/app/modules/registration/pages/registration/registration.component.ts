@@ -6,6 +6,7 @@ import {
   ValidationErrors,
   Validators
 } from '@angular/forms';
+import { NewUserStoreService } from 'src/app/shared/services/store/new-user-store.service';
 
 @Component({
   selector: 'app-registration',
@@ -24,7 +25,8 @@ export class RegistrationComponent {
   showPassword: boolean = false;
 
   constructor(
-    private fb: FormBuilder // private newUserStore: NewUserStoreService
+    private fb: FormBuilder,
+    private newUserStore: NewUserStoreService
   ) {}
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class RegistrationComponent {
   }
 
   registerDataForm(): any {
-    // this.newUserStore.setFormValue(this.registrationForm.value);
+    this.newUserStore.setFormValue(this.registrationForm.value);
     console.log(this.registrationForm.value);
   }
 
@@ -74,7 +76,7 @@ export class RegistrationComponent {
   }
 
   get nome() {
-    return this.registrationForm.get('name');
+    return this.registrationForm.get('nome');
   }
 
   get email() {

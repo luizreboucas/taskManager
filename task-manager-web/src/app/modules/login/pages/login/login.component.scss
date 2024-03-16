@@ -13,17 +13,21 @@
 
   .login-card {
     align-items: center;
-    background-color: $yellow-logo;
+    background: radial-gradient(
+      circle,
+      rgba(250, 250, 250, 1) 0%,
+      rgba(0, 133, 133, 1) 100%
+    );
     color: $white;
     height: 50vh;
     margin: 0 auto;
     width: 60vw;
 
     &__title {
-      color: $white;
+      color: $blue-logo-darkest;
       font-family: $lexend;
       font-size: 1.25rem;
-      font-weight: 700;
+      font-weight: 900;
       padding: 20px;
       padding-bottom: 0;
       margin-top: 10px;
@@ -40,7 +44,9 @@
       display: flex;
       align-items: center;
       flex-direction: column;
+      justify-content: space-between;
       margin-top: 30px;
+      height: 30vh;
     }
 
     &__form {
@@ -144,6 +150,7 @@
 }
 
 .hint-left {
+  color: $blue-logo-darkest;
   font-family: $lexend;
   font-size: 0.55rem;
   margin-left: 6px !important;

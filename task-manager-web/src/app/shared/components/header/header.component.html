@@ -8,8 +8,19 @@
     />
   </div>
   <div class="header__login">
-    <mat-icon class="header__login--icon" (click)="navigate('/login')"
-      >login</mat-icon
+    <mat-icon
+      *ngIf="!isAuthenticated"
+      class="header__login--icon"
+      (click)="navigate('/login')"
     >
+      login
+    </mat-icon>
+    <mat-icon
+      *ngIf="isAuthenticated"
+      class="header__login--icon"
+      (click)="logout()"
+    >
+      logout
+    </mat-icon>
   </div>
 </mat-toolbar>
