@@ -6,6 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ErrorModalComponent } from 'src/app/shared/components/modals/error-modal/error-modal.component';
 import { Routes } from 'src/app/shared/enums/routes';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarSucessDeleteComponent } from 'src/app/shared/components/snackbar/snackbar-sucess-delete/snackbar-sucess-delete.component';
 
 @Component({
   selector: 'app-dashboard-task',
@@ -22,7 +24,8 @@ export class DashboardTaskComponent implements OnInit {
     private fb: FormBuilder,
     private dashboardService: DashboardService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -34,8 +37,7 @@ export class DashboardTaskComponent implements OnInit {
     this.dashboardService.deleteTask(this.editForm.value.id).subscribe({
       next: () => {
         this.reloadTasks.emit(true);
-        console.log('deletado com sucesso');
-        // TODO: Adicionar tratativa
+        this._snackBar.openFromComponent(SnackbarSucessDeleteComponent);
       },
       error: () => {
         this.dialog
