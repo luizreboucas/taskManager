@@ -13,9 +13,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorModalComponent } from './components/modals/error-modal/error-modal.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent],
+  declarations: [FooterComponent, HeaderComponent, ErrorModalComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -41,7 +42,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatNativeDateModule,
     MatDividerModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    ErrorModalComponent
   ]
 })
 export class SharedModule {}
