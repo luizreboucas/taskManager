@@ -5,7 +5,6 @@ export interface User {
   email: string;
   senha?: string;
   tasks?: Task[];
-  // ver com os meninos blocked?: boolean;
 }
 
 export interface UserResponse {

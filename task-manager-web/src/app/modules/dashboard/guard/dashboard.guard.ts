@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { AuthenticationService } from './../../../shared/services/authentication/authentication.service';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Routes } from 'src/app/shared/enums/routes';
 
 @Injectable({

@@ -39,7 +39,6 @@ export class RegistrationComponent {
 
   private createRegistrationForm(): void {
     this.registrationForm = this.fb.group({
-      blocked: [false],
       nome: ['', [Validators.required, Validators.maxLength(100)]],
       email: [
         '',
