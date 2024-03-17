@@ -12,6 +12,19 @@
   flex-direction: column;
   align-items: flex-start;
 
+  &__title {
+    color: $blue-logo-darkest;
+    font-family: $lexend;
+    font-size: 1.275rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 25px 37px 0;
+
+    &--bolder {
+      font-weight: 900;
+    }
+  }
+
   &__tasks {
     display: flex;
     flex-direction: row;
@@ -24,7 +37,7 @@
   &__button {
     background: none;
     border: none;
-    padding: 10px 20px;
+    padding: 17px 0;
     position: fixed;
     right: 3%;
     // position: absolute;
