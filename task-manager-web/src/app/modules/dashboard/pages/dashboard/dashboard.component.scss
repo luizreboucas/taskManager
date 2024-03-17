@@ -40,9 +40,6 @@
     padding: 17px 0;
     position: fixed;
     right: 3%;
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
 
     .add-icon {
       color: $blue-logo;
@@ -55,5 +52,14 @@
         cursor: pointer;
       }
     }
+  }
+
+  &__empty {
+    color: $blue-logo-darkest;
+    font-family: $lexend;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 25px 37px 0;
   }
 }
