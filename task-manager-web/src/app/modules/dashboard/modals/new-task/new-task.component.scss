@@ -1,11 +1,14 @@
 @import '/src/styles/variables.scss';
 
 .task {
-  height: 365px;
+  height: 400px;
   background-color: $blue-logo;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   .task-close {
     color: $white-box;
@@ -45,7 +48,7 @@
       font-weight: 700;
       letter-spacing: 0.5px;
       margin-bottom: 5px;
-      height: 4vh;
+      height: 50px;
       width: 315px;
     }
 
@@ -72,7 +75,7 @@
       letter-spacing: 0.5px;
       line-height: normal;
       margin: 15px 0 0;
-      height: 17vh;
+      height: 110px;
       padding: 3px 10px;
       overflow: auto;
       width: 100%;
@@ -83,11 +86,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
     padding: 0;
-    padding-top: 15px;
+    padding-top: 35px;
     margin: -5px 10px;
-    gap: 20px;
+    gap: 25px;
 
     &__radio-button {
       color: $white-box;

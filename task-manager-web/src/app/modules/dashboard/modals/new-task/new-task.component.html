@@ -1,33 +1,35 @@
 <mat-card class="task">
-  <form [formGroup]="newTaskForm">
-    <mat-icon mat-dialog-close class="task-close" close>close</mat-icon>
+  <form [formGroup]="newTaskForm" class="task__form">
+    <div>
+      <mat-icon mat-dialog-close class="task-close" close>close</mat-icon>
 
-    <mat-card-header class="task-header">
-      <mat-card-title>
-        <mat-label class="task-header__label">Nome:</mat-label>
-        <input
-          class="task-header__title"
+      <mat-card-header class="task-header">
+        <mat-card-title>
+          <mat-label class="task-header__label">Nome:</mat-label>
+          <input
+            class="task-header__title"
+            type="text"
+            matInput
+            formControlName="nome"
+          />
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-divider
+        class="task-divider"
+        [ngStyle]="{ 'background-color': dividerColor }"
+      ></mat-divider>
+
+      <mat-card-content class="task-description">
+        <textarea
+          class="task-description__text"
           type="text"
+          placeholder="(Descrição)"
           matInput
-          formControlName="nome"
-        />
-      </mat-card-title>
-    </mat-card-header>
-
-    <mat-divider
-      class="task-divider"
-      [ngStyle]="{ 'background-color': dividerColor }"
-    ></mat-divider>
-
-    <mat-card-content class="task-description">
-      <textarea
-        class="task-description__text"
-        type="text"
-        placeholder="(Descrição)"
-        matInput
-        formControlName="descricao"
-      ></textarea>
-    </mat-card-content>
+          formControlName="descricao"
+        ></textarea>
+      </mat-card-content>
+    </div>
 
     <mat-card-actions class="task-actions">
       <div class="task-actions--align">
