@@ -1,9 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/shared/interfaces/task.interface';
 import { DashboardService } from '../../services/dashboard.service';
-import { NewUserStoreService } from 'src/app/shared/services/store/new-user-store.service';
-import { Subscription } from 'rxjs';
-import { User } from 'src/app/shared/interfaces/user.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { NewTaskComponent } from '../../modals/new-task/new-task.component';
 
@@ -36,6 +33,10 @@ export class DashboardComponent implements OnInit {
       .subscribe(() => {
         this.getTasks();
       });
+  }
+
+  reloadTasks(): void {
+    this.getTasks();
   }
 
   private getUserId(): void {

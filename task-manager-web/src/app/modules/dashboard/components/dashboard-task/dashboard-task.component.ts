@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Task } from 'src/app/shared/interfaces/task.interface';
 import { DashboardService } from '../../services/dashboard.service';
@@ -10,6 +10,7 @@ import { DashboardService } from '../../services/dashboard.service';
 })
 export class DashboardTaskComponent implements OnInit {
   @Input() task!: Task;
+  @Output() reloadTasks: EventEmitter<boolean> = new EventEmitter();
 
   editForm!: FormGroup;
 
@@ -21,6 +22,20 @@ export class DashboardTaskComponent implements OnInit {
   ngOnInit(): void {
     this.buildForm();
     this.mapValueChanged();
+  }
+
+  deleteTask(): void {
+    this.dashboardService.deleteTask(this.editForm.value.id).subscribe({
+      next: () => {
+        this.reloadTasks.emit(true);
+        console.log('deletado com sucesso');
+        // TODO: Adicionar tratativa
+      },
+      error: () => {
+        console.log('erro na hora de deletar');
+        // TODO: Adicionar tratativa
+      }
+    });
   }
 
   private buildForm(): void {
