@@ -2,6 +2,7 @@
   <button (click)="openModalNewTask()" class="dashboard__button">
     <mat-icon class="add-icon"> add_circle </mat-icon>
   </button>
+
   <div class="dashboard__tasks">
     <app-dashboard-task
       *ngFor="let task of tasks"

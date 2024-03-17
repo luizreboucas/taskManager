@@ -19,9 +19,7 @@ export class NewTaskComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: NewTaskModal,
     private fb: FormBuilder,
     private dashboardService: DashboardService
-  ) {
-    console.log(this.data);
-  }
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -35,13 +33,12 @@ export class NewTaskComponent implements OnInit {
           this.dialogRef.close();
         },
         error: () => {
-          // TODO: Adicionar tratativa
+          // TODO: Adicionar tratativa de erro
           this.dialogRef.close();
         }
       });
       return;
     }
-    console.log('não salvei');
     this.dialogRef.close();
   }
 
