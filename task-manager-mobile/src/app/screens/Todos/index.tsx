@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, RefreshControl } from 'react-native';
+import { Alert, FlatList, Modal, RefreshControl, View, Text, Pressable  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { Container } from './styles';
@@ -22,7 +22,7 @@ export function Todos() {
 
   const navigation = useNavigation();
 
-  const [todos, setTodos] = useState<ITodoModel[]>();
+  const [todos, setTodos] = useState<ITodoModel[]>([]);
   const [refreshing, setRefreshing] = useState(false);
 
   const { user, token, signOut } = useAuth();
@@ -56,14 +56,37 @@ export function Todos() {
     signOut();
   }
 
-  useEffect(() => {
-    getTodos();
-  }, []);
-
   const onRefresh = () => {
     setRefreshing(true);
     getTodos();
   };
+
+  useEffect(() => {
+    getTodos();
+  }, []);
+
+  const deleteTodo = (taskId: string) => {
+    setRefreshing(true);
+    fetch(`${env.baseUrl}/task/${taskId}`, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      }
+    })
+    .then((response) => response.json())
+    .then(() => {
+      Toast.show('Atividade removida', { type: 'success' });
+    })
+    .catch(error => {
+      Toast.show(error.message, { type: 'danger'});
+    })
+    .finally(() => {
+      setRefreshing(false);
+      getTodos();
+    });
+  }
 
   return (
     <Container>
@@ -88,6 +111,8 @@ export function Todos() {
               isFirst={index === 0}
               isLast={index === todos.length - 1}
               priority={item.prioridade}
+              onPress={() => navigation.navigate('NewTodo', { id: item._id })}
+              onLongPress={() => deleteTodo(item._id)}
             />
           )
           : null
@@ -104,7 +129,7 @@ export function Todos() {
         }
       />
 
-      <ButtonIcon icon={Plus} iconSize={28} iconColor={theme.COLORS.LOW_PRIORITY} onPress={() => navigation.navigate("NewTodo")}/>
+      <ButtonIcon icon={Plus} iconSize={28} iconColor={theme.COLORS.WARNING} onPress={() => navigation.navigate("NewTodo")}/>
 
     </Container>
   );

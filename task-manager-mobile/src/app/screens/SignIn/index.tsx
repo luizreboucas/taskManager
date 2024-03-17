@@ -1,18 +1,24 @@
 import React, { useState, useCallback } from "react";
+import { SignOut } from "phosphor-react-native";
+
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Highlight } from "../../components/Highlight";
 import { Loader } from "../../components/Loader";
+import { ButtonIcon } from "../../components/ButtonIcon";
 import { Container, Header, Icon } from "./styles";
 
 import { useAuth } from "../../hooks/AuthContext";
+import { useNavigation } from "@react-navigation/native";
 
-export const Login = () => {
+export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const { signIn } = useAuth();
+
+  const navigation = useNavigation();
 
   const handleSignIn = useCallback(async () => {
     try {
@@ -50,6 +56,9 @@ export const Login = () => {
       />
 
       { loading ? <Loader/> : <Button title="Sign in" onPress={handleSignIn} disabled={loading} /> }
+
+
+      <ButtonIcon icon={SignOut} iconSize={33} iconColor="#FFF" style={{ paddingTop: 20 }} onPress={() => navigation.navigate('SignUp')}/>
     </Container>
   );
 };

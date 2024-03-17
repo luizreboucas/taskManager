@@ -13,9 +13,9 @@ Task Manager is a mobile application developed with React Native and Expo, desig
 - [x] Sign in screen, authentication flow with hook context or redux sagas
 - [x] Integration api
 - [ ] Verify how disabled security for localhost test without used IP_ADDRESS
-- [ ] Implements update and delete tasks
-- [ ] Backend not return response about Token JWT inválido@
-- [ ] Sign up screen
+- [x] Implements update and delete tasks
+- [] Backend not return response about Token JWT inválido@
+- [x] Sign up screen
 
 ## Prerequisites
 

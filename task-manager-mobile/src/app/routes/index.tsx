@@ -5,8 +5,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { Todos } from "../screens/Todos";
 import { NewTodo } from "../screens/NewTodo";
-import { Login } from "../screens/Login";
+import { SignIn } from "../screens/SignIn";
 import { useAuth } from '../hooks/AuthContext';
+import { SignUp } from "../screens/SignUp";
 
 export const Routes = ({ isPrivate = false }) => {
   const { COLORS } = useTheme();
@@ -28,7 +29,8 @@ export const Routes = ({ isPrivate = false }) => {
             {
               user._id == null ? (
                 <>
-                  <Stack.Screen name="Login" component={Login} />
+                  <Stack.Screen name="SignIn" component={SignIn} />
+                  <Stack.Screen name="SignUp" component={SignUp} />
                 </>
               ) : (
                 <>
