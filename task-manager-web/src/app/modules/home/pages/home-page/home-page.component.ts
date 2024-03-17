@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Routes } from 'src/app/shared/enums/routes';
 import { AuthenticationService } from 'src/app/shared/services/authentication/authentication.service';
@@ -8,7 +8,7 @@ import { AuthenticationService } from 'src/app/shared/services/authentication/au
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements AfterContentChecked {
   isAuthenticated = false;
 
   constructor(
@@ -16,8 +16,7 @@ export class HomePageComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {}
 
-  ngOnInit(): void {
-    //TESTAR NECESSIDADE DO ONCHANGES
+  ngAfterContentChecked(): void {
     this.isAuthenticated = this.authenticationService.authenticated();
   }
 

@@ -13,7 +13,7 @@
 
     <mat-divider
       class="task-divider"
-      [ngStyle]="{ 'background-color': task.prioridadeCor }"
+      [ngStyle]="{ 'background-color': task.cor }"
     ></mat-divider>
 
     <mat-card-content class="task-description">
@@ -50,7 +50,7 @@
         </mat-radio-button>
       </mat-radio-group>
 
-      <button mat-button class="task-actions__buttons">
+      <button mat-button class="task-actions__buttons" (click)="deleteTask()">
         <span class="material-symbols-outlined delete-icon"> delete </span>
       </button>
     </mat-card-actions>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/shared/interfaces/task.interface';
 import { DashboardService } from '../../services/dashboard.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NewTaskComponent } from '../../modals/new-task/new-task.component';
+import { UserService } from 'src/app/shared/services/user/user.service';
+import { User } from 'src/app/shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,141 +12,63 @@ import { DashboardService } from '../../services/dashboard.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  //tasks: Task[] = [];
+  tasks: Task[] = [];
+  userId!: string | null;
+  user!: User | undefined;
 
-  tasks: Task[] = [
-    {
-      _id: '1',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 1,
-      prioridadeCor: '#db2f49'
-    },
-    {
-      _id: '2',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 2,
-      prioridadeCor: '#fa6845'
-    },
-    {
-      _id: '3',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 3,
-      prioridadeCor: '#fca553'
-    },
-    {
-      _id: '4',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 1,
-      prioridadeCor: '#db2f49'
-    },
-    {
-      _id: '5',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 2,
-      prioridadeCor: '#fa6845'
-    },
-    {
-      _id: '6',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 3,
-      prioridadeCor: '#fca553'
-    },
-    {
-      _id: '7',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 1,
-      prioridadeCor: '#db2f49'
-    },
-    {
-      _id: '8',
-      nome: 'Teste de exibição',
-      descricao: 'Uma task de teste cheia de descrição.',
-      prioridade: 2,
-      prioridadeCor: '#fa6845'
-    },
-    {
-      _id: '9',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito.',
-      prioridade: 3,
-      prioridadeCor: '#fca553'
-    },
-    {
-      _id: '10',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 1,
-      prioridadeCor: '#db2f49'
-    },
-    {
-      _id: '11',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 2,
-      prioridadeCor: '#fa6845'
-    },
-    {
-      _id: '12',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 3,
-      prioridadeCor: '#fca553'
-    },
-    {
-      _id: '13',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 1,
-      prioridadeCor: '#db2f49'
-    },
-    {
-      _id: '14',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 2,
-      prioridadeCor: '#fa6845'
-    },
-    {
-      _id: '15',
-      nome: 'Teste de exibição',
-      descricao:
-        'Uma task de teste cheia de descrição para descrever o que precisa ser feito e deve ser feito para que tudo seja feito e bem feito.',
-      prioridade: 3,
-      prioridadeCor: '#fca553'
-    }
-  ];
-
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService,
+    private dialog: MatDialog,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    //this.getTasks();
+    this.getUserId();
+    this.getTasks();
+    this.setUserName();
   }
 
-  // private getTasks(): void {
-  //   this.dashboardService
-  //     .getTasksByUser('65f52a6f8b03673ccbd07874')
-  //     .subscribe((tasksByUser: Task[]) => {
-  //       this.tasks = tasksByUser;
-  //     });
-  // }
+  openModalNewTask(): void {
+    this.dialog
+      .open(NewTaskComponent, {
+        data: { usuario: this.userId },
+        width: '400px'
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.getTasks();
+      });
+  }
+
+  reloadTasks(): void {
+    this.getTasks();
+  }
+
+  private getUserId(): void {
+    this.userId = JSON.parse(localStorage.getItem('id') as string);
+  }
+
+  private getTasks(): void {
+    if (this.userId) {
+      this.dashboardService
+        .getTasksByUser(this.userId)
+        .subscribe((tasksByUser: Task[]) => {
+          this.tasks = tasksByUser;
+        });
+    }
+
+    // TODO: Adicionar tratativa para quando não houver ID
+  }
+
+  private setUserName(): void {
+    this.userService.getUsers().subscribe({
+      next: (response) => {
+        this.user = this.mapUsers(response);
+      }
+    });
+  }
+
+  private mapUsers(users: User[]): User | undefined {
+    return users.find((user) => user._id === this.userId);
+  }
 }

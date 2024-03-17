@@ -3,7 +3,7 @@ export interface Task {
   nome: string;
   descricao: string;
   prioridade: number;
-  prioridadeCor?: string;
+  cor: string;
   usuario?: string;
 }
 

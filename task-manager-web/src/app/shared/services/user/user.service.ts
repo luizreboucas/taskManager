@@ -13,4 +13,8 @@ export class UserService {
   postNewUser(body: User): Observable<User> {
     return this.http.post<User>(`${environment.LOCAL}/user`, body);
   }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${environment.LOCAL}/user`);
+  }
 }

@@ -87,10 +87,9 @@
       font-family: $lexend;
       font-weight: 600;
       margin: 0 auto;
-      padding: 10px;
-      padding-left: 18px;
-      padding-right: 18px;
-      width: 7vw;
+      padding: 10px 18px;
+      align-items: center;
+      width: 100px;
 
       &:hover {
         background-color: $blue-logo;
@@ -107,10 +106,8 @@
       font-family: $lexend;
       font-weight: 600;
       margin: 0 auto;
-      padding: 10px;
-      padding-left: 18px;
-      padding-right: 18px;
-      width: 7vw;
+      padding: 10px 18px;
+      width: 100px;
     }
 
     &__cancel {
@@ -121,10 +118,8 @@
       font-family: $lexend;
       font-weight: 600;
       margin: 0 auto;
-      padding: 10px;
-      padding-left: 18px;
-      padding-right: 18px;
-      width: 7vw;
+      padding: 10px 18px;
+      width: 100px;
 
       &:hover {
         background-color: $white-hover;

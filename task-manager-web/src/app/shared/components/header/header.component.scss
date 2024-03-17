@@ -8,12 +8,13 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 700;
   flex-direction: row;
-  height: 11vh;
+  height: 9vh;
   justify-content: space-between;
 
   &__items {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 13px;
   }
 
@@ -21,6 +22,35 @@
     font-family: $laleza;
     font-size: 1.875rem;
     font-weight: 900;
+    margin: 0;
+
+    &:hover {
+      color: $white-hover;
+      cursor: pointer;
+    }
+  }
+
+  &__page {
+    color: $yellow-logo;
+    font-family: $lexend;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    padding-left: 50px;
+
+    &--align {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--divider {
+      background-color: $yellow-logo;
+      height: 9vh;
+      margin-left: 40px;
+      width: 2px;
+    }
 
     &:hover {
       color: $white-hover;

@@ -1,11 +1,10 @@
 import { Task } from 'src/app/shared/interfaces/task.interface';
 export interface User {
-  _id?: string;
+  _id: string;
   nome: string;
   email: string;
   senha?: string;
   tasks?: Task[];
-  // ver com os meninos blocked?: boolean;
 }
 
 export interface UserResponse {
