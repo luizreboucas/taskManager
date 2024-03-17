@@ -50,7 +50,11 @@
         </mat-radio-button>
       </mat-radio-group>
 
-      <button mat-button class="task-actions__buttons" (click)="deleteTask()">
+      <button
+        mat-button
+        class="task-actions__buttons"
+        (click)="openModalTaskRemoval()"
+      >
         <span class="material-symbols-outlined delete-icon"> delete </span>
       </button>
     </mat-card-actions>

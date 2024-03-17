@@ -6,9 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ErrorModalComponent } from 'src/app/shared/components/modals/error-modal/error-modal.component';
 import { Routes } from 'src/app/shared/enums/routes';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackbarSucessDeleteComponent } from 'src/app/shared/components/snackbar/snackbar-sucess-delete/snackbar-sucess-delete.component';
+
 import { PriorityColors, PriorityLevel } from '../../enums/priority-level';
+import { TaskRemovalComponent } from '../../modals/task-removal/task-removal.component';
 
 @Component({
   selector: 'app-dashboard-task',
@@ -25,8 +25,7 @@ export class DashboardTaskComponent implements OnInit {
     private fb: FormBuilder,
     private dashboardService: DashboardService,
     private dialog: MatDialog,
-    private router: Router,
-    private _snackBar: MatSnackBar
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,19 +34,14 @@ export class DashboardTaskComponent implements OnInit {
     this.mapValueChanged();
   }
 
-  deleteTask(): void {
-    this.dashboardService.deleteTask(this.editForm.value.id).subscribe({
-      next: () => {
-        this.reloadTasks.emit(true);
-        this._snackBar.openFromComponent(SnackbarSucessDeleteComponent);
-      },
-      error: () => {
-        this.dialog
-          .open(ErrorModalComponent, { width: '400px' })
-          .afterClosed()
-          .subscribe(() => this.router.navigate([Routes.DASHBOARD]));
-      }
-    });
+  openModalTaskRemoval(): void {
+    this.dialog
+      .open(TaskRemovalComponent, {
+        width: '400px',
+        data: { _id: this.editForm.controls['id'].value }
+      })
+      .afterClosed()
+      .subscribe(() => this.reloadTasks.emit(true));
   }
 
   private buildForm(): void {
