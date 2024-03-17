@@ -22,8 +22,11 @@ export class DashboardService {
     return this.http.post<NewTaskResponse>(`${environment.LOCAL}/task`, body);
   }
 
-  updateTask(taskId: string, body: Partial<Task>): Observable<Task> {
-    return this.http.put<Task>(`${environment.LOCAL}/task/${taskId}`, body);
+  updateTask(taskId: string, body: Partial<Task>): Observable<NewTaskResponse> {
+    return this.http.put<NewTaskResponse>(
+      `${environment.LOCAL}/task/${taskId}`,
+      body
+    );
   }
 
   deleteTask(taskId: string): Observable<Task[]> {

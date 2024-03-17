@@ -13,7 +13,7 @@
 
     <mat-divider
       class="task-divider"
-      [ngStyle]="{ 'background-color': task.cor }"
+      [ngStyle]="{ 'background-color': editForm.controls['cor'].value }"
     ></mat-divider>
 
     <mat-card-content class="task-description">

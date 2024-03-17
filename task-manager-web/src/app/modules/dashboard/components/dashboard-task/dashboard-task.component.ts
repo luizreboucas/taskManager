@@ -8,6 +8,7 @@ import { ErrorModalComponent } from 'src/app/shared/components/modals/error-moda
 import { Routes } from 'src/app/shared/enums/routes';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarSucessDeleteComponent } from 'src/app/shared/components/snackbar/snackbar-sucess-delete/snackbar-sucess-delete.component';
+import { PriorityColors, PriorityLevel } from '../../enums/priority-level';
 
 @Component({
   selector: 'app-dashboard-task',
@@ -30,6 +31,7 @@ export class DashboardTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+    this.verifyColorChange();
     this.mapValueChanged();
   }
 
@@ -58,10 +60,19 @@ export class DashboardTaskComponent implements OnInit {
     });
   }
 
+  private verifyColorChange(): void {
+    this.editForm.controls['prioridade'].valueChanges.subscribe((value) => {
+      this.setDividerColor(value);
+    });
+  }
+
   private mapValueChanged(): void {
     for (const field in this.editForm.controls) {
       this.editForm.controls[field].valueChanges.subscribe((value) => {
-        this.updateTask(field, value);
+        if (field !== 'cor') {
+          this.updateTask(field, value);
+        }
+        return;
       });
     }
   }
@@ -83,5 +94,22 @@ export class DashboardTaskComponent implements OnInit {
     const body: Partial<Task> = {};
     body[field as keyof Task] = value;
     return body;
+  }
+
+  private setDividerColor(priority: string): void {
+    switch (priority) {
+      case PriorityLevel.HIGH_PRIORITY:
+        this.editForm.controls['cor'].setValue(PriorityColors.HIGH);
+        break;
+      case PriorityLevel.MEDIUM_PRIORITY:
+        this.editForm.controls['cor'].setValue(PriorityColors.MEDIUM);
+        break;
+      case PriorityLevel.LOW_PRIORITY:
+        this.editForm.controls['cor'].setValue(PriorityColors.LOW);
+        break;
+      default:
+        this.editForm.controls['cor'].setValue(PriorityColors.DEFAULT);
+        break;
+    }
   }
 }
