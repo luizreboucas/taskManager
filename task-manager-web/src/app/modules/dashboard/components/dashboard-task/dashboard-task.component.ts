@@ -2,6 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Task } from 'src/app/shared/interfaces/task.interface';
 import { DashboardService } from '../../services/dashboard.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { ErrorModalComponent } from 'src/app/shared/components/modals/error-modal/error-modal.component';
+import { Routes } from 'src/app/shared/enums/routes';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarSucessDeleteComponent } from 'src/app/shared/components/snackbar/snackbar-sucess-delete/snackbar-sucess-delete.component';
 
 @Component({
   selector: 'app-dashboard-task',
@@ -16,7 +22,10 @@ export class DashboardTaskComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private dialog: MatDialog,
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -28,12 +37,13 @@ export class DashboardTaskComponent implements OnInit {
     this.dashboardService.deleteTask(this.editForm.value.id).subscribe({
       next: () => {
         this.reloadTasks.emit(true);
-        console.log('deletado com sucesso');
-        // TODO: Adicionar tratativa
+        this._snackBar.openFromComponent(SnackbarSucessDeleteComponent);
       },
       error: () => {
-        console.log('erro na hora de deletar');
-        // TODO: Adicionar tratativa
+        this.dialog
+          .open(ErrorModalComponent, { width: '400px' })
+          .afterClosed()
+          .subscribe(() => this.router.navigate([Routes.DASHBOARD]));
       }
     });
   }
@@ -60,11 +70,11 @@ export class DashboardTaskComponent implements OnInit {
     this.dashboardService
       .updateTask(this.editForm.value.id, this.getBodyFormatted(field, value))
       .subscribe({
-        next: () => {
-          // TODO: Adicionar tratativa
-        },
         error: () => {
-          // TODO: Adicionar tratativa
+          this.dialog
+            .open(ErrorModalComponent, { width: '400px' })
+            .afterClosed()
+            .subscribe(() => this.router.navigate([Routes.DASHBOARD]));
         }
       });
   }

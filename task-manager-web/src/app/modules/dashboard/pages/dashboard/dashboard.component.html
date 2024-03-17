@@ -1,9 +1,14 @@
 <div class="dashboard">
-  <h1 class="dashboard__title">
-    Olá,
-    <span class="dashboard__title--bolder">{{ user?.nome }}</span
-    >! :D
-  </h1>
+  <div>
+    <h1 class="dashboard__title">
+      Olá,
+      <span class="dashboard__title--bolder">{{ user?.nome }}</span
+      >! :D
+    </h1>
+    <p *ngIf="!tasks.length" class="dashboard__empty">
+      Ainda não há tasks registradas.
+    </p>
+  </div>
 
   <button (click)="openModalNewTask()" class="dashboard__button">
     <mat-icon class="add-icon"> add_circle </mat-icon>

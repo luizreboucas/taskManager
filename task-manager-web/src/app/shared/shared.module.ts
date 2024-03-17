@@ -13,9 +13,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorModalComponent } from './components/modals/error-modal/error-modal.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarSucessDeleteComponent } from './components/snackbar/snackbar-sucess-delete/snackbar-sucess-delete.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent],
+  declarations: [FooterComponent, HeaderComponent, ErrorModalComponent, SnackbarSucessDeleteComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -27,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatNativeDateModule,
     MatDividerModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   exports: [
     HeaderComponent,
@@ -41,7 +45,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatNativeDateModule,
     MatDividerModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    ErrorModalComponent,
+    MatSnackBarModule
   ]
 })
 export class SharedModule {}

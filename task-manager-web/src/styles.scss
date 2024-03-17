@@ -125,3 +125,7 @@ body {
     border-color: $low-priority !important;
   }
 }
+
+.mdc-snackbar__surface {
+  padding: 0 !important;
+}

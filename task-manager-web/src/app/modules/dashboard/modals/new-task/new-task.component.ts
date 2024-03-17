@@ -1,9 +1,16 @@
 import { DashboardService } from './../../services/dashboard.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialog
+} from '@angular/material/dialog';
 import { NewTaskModal } from '../../interfaces/new-task-modal.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PriorityColors, PriorityLevel } from '../../enums/priority-level';
+import { Router } from '@angular/router';
+import { ErrorModalComponent } from 'src/app/shared/components/modals/error-modal/error-modal.component';
+import { Routes } from 'src/app/shared/enums/routes';
 
 @Component({
   selector: 'app-new-task',
@@ -18,7 +25,9 @@ export class NewTaskComponent implements OnInit {
     public dialogRef: MatDialogRef<NewTaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: NewTaskModal,
     private fb: FormBuilder,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,8 +42,11 @@ export class NewTaskComponent implements OnInit {
           this.dialogRef.close();
         },
         error: () => {
-          // TODO: Adicionar tratativa de erro
           this.dialogRef.close();
+          this.dialog
+            .open(ErrorModalComponent, { width: '400px' })
+            .afterClosed()
+            .subscribe(() => this.router.navigate([Routes.DASHBOARD]));
         }
       });
       return;
