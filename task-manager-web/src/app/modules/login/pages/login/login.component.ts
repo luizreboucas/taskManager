@@ -23,7 +23,7 @@ export class LoginComponent {
     this.createLoginForm();
   }
 
-  Login(): any {
+  login(): void {
     this.newUserStore.setFormLoginValue(this.loginForm.value);
   }
 

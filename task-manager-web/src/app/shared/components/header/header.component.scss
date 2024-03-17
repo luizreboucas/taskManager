@@ -63,15 +63,37 @@
     width: 40px;
   }
 
-  &__login {
+  &__buttons {
     align-items: center;
     display: flex;
     gap: 20px;
     margin-right: 10px;
 
-    &--icon:hover {
-      color: $white-hover;
-      cursor: pointer;
+    .login {
+      align-items: center;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: center;
+
+      &__description {
+        color: $white;
+        font-family: $lexend;
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0;
+        padding-right: 4px;
+      }
+
+      &__icon {
+        color: $white;
+      }
+
+      &__description:hover,
+      &__icon:hover {
+        color: $white-hover;
+        cursor: pointer;
+      }
     }
   }
 }

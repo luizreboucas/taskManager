@@ -8,13 +8,7 @@
         <form class="login-card__form" [formGroup]="loginForm">
           <mat-form-field class="login-card__form--left" appearance="fill">
             <mat-label class="login-card__label">E-mail</mat-label>
-            <input
-              class="login-card__input"
-              matInput
-              placeholder=""
-              value=""
-              formControlName="email"
-            />
+            <input class="login-card__input" matInput formControlName="email" />
           </mat-form-field>
           <div *ngIf="email?.touched && email?.errors" class="hint-left">
             <mat-hint class="hint-left" *ngIf="email?.errors?.['email']">
@@ -51,11 +45,12 @@
         </form>
         <div class="login-buttons">
           <button
+            [disabled]="loginForm.invalid"
             [ngClass]="{
               'login-buttons__save': loginForm.valid,
               'login-buttons__disabled': loginForm.invalid
             }"
-            (click)="Login()"
+            (click)="login()"
           >
             Acessar
           </button>
