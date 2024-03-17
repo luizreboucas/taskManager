@@ -27,7 +27,7 @@ class TaskController {
     static createTask = async(req: Request, res: Response) => {
         try {
             const {nome, descricao, prioridade, usuario} = req.body;
-            const cor = getColorPrioridade(prioridade);
+            const cor = getColorPrioridade(+prioridade);
             const task = new Task({nome,descricao,prioridade,usuario, cor});
             task.save();
             res.status(201).json({message: 'task criada com sucesso', task})
