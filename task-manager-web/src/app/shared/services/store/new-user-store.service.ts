@@ -9,6 +9,8 @@ import {
 } from '../../interfaces/user.interface';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { Routes } from '../../enums/routes';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorModalComponent } from '../../components/modals/error-modal/error-modal.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,8 @@ export class NewUserStoreService {
   constructor(
     private userService: UserService,
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {
     this.formListenerSubject = new BehaviorSubject<User>({} as User);
     this.formLoginListenerSubject = new BehaviorSubject<UserLogin>(
@@ -50,7 +53,11 @@ export class NewUserStoreService {
           next: () => {
             this.router.navigate([Routes.REGISTRATION_CONFIRM]);
           },
-          error: () => alert('Usuario não cadastrado')
+          error: () =>
+            this.dialog
+              .open(ErrorModalComponent, { width: '400px' })
+              .afterClosed()
+              .subscribe(() => this.router.navigate([Routes.REGISTRATION]))
         });
       });
   }
@@ -68,7 +75,11 @@ export class NewUserStoreService {
             localStorage.setItem('id', JSON.stringify(request.result.user._id));
             this.router.navigate([Routes.DASHBOARD]);
           },
-          error: () => alert('Usuario não cadastrado')
+          error: () =>
+            this.dialog
+              .open(ErrorModalComponent, { width: '400px' })
+              .afterClosed()
+              .subscribe(() => this.router.navigate([Routes.LOGIN]))
         });
       });
   }

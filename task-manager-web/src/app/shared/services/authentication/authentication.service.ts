@@ -21,7 +21,7 @@ export class AuthenticationService {
 
   logOut(): void {
     localStorage.clear();
-    this.router.navigate([Routes.DEFAULT]);
+    this.router.navigate([Routes.LOGIN]);
   }
 
   authenticated(): boolean {
