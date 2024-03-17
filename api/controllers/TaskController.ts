@@ -41,7 +41,7 @@ class TaskController {
             const taskId = req.params.taskId
             const newTaskData = req.body
             if(newTaskData.prioridade) {
-                newTaskData.cor = getColorPrioridade(newTaskData.prioridade);
+                newTaskData.cor = getColorPrioridade(+newTaskData.prioridade);
             }
             await Task.findByIdAndUpdate(taskId, newTaskData);
             const updated = await Task.findById(taskId);
