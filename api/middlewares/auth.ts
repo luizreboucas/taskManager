@@ -19,7 +19,7 @@ export default function isAuthenticated(
     const decodeToken = verify(token, authConfig.jwt.secret);
 
     return next();
-  } catch {
-    throw new Error('Token JWT inválido@');
+  } catch (error) {
+    response.status(400).json({ message: 'Token JWT inválido' });
   }
 }
