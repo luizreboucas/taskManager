@@ -8,7 +8,7 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 700;
   flex-direction: row;
-  height: 9vh;
+  height: 11vh;
   justify-content: space-between;
 
   &__items {
@@ -31,29 +31,20 @@
   }
 
   &__page {
-    color: $yellow-logo;
+    border-bottom: 1px solid $white-hover;
+    color: $white-hover;
     font-family: $lexend;
     font-size: 1rem;
     font-weight: 700;
     margin: 0;
-    padding-left: 50px;
 
-    &--align {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    }
-
-    &--divider {
-      background-color: $yellow-logo;
-      height: 9vh;
-      margin-left: 40px;
-      width: 2px;
+    &--padding {
+      padding-left: 30px;
     }
 
     &:hover {
-      color: $white-hover;
+      border-bottom: 1px solid $yellow-logo;
+      color: $yellow-logo;
       cursor: pointer;
     }
   }
