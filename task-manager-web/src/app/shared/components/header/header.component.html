@@ -6,8 +6,7 @@
       src="../../../../assets/img/ididit-logo.png"
       alt="Logo do sistema iDiDiT"
     />
-    <span *ngIf="isAuthenticated" class="header__page--align">
-      <span class="header__page--divider"></span>
+    <span *ngIf="isAuthenticated" class="header__page--padding">
       <h2 class="header__page" (click)="navigate('/dashboard')">TO-DOs</h2>
     </span>
   </div>
