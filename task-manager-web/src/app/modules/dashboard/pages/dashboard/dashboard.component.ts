@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     this.dialog
       .open(NewTaskComponent, {
         data: { usuario: this.userId },
-        width: '400px'
+        width: '420px'
       })
       .afterClosed()
       .subscribe(() => {

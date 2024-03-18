@@ -1,8 +1,9 @@
 @import '/src/styles/variables.scss';
 
 .task {
-  height: 30vh;
-  background-color: $blue-logo;
+  height: 210px;
+  background: $blue-clear-background;
+  border: 5px solid $white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,7 +12,7 @@
     &__title {
       background: none;
       border: none;
-      color: $white-box;
+      color: $blue-logo-darkest;
       font-family: $lexend;
       font-size: 1rem;
       font-weight: 700;
@@ -22,7 +23,7 @@
     }
 
     input:focus {
-      border-bottom: 2px solid $white-box;
+      border-bottom: 2px solid $blue-logo-darkest;
     }
   }
 
@@ -44,7 +45,7 @@
       letter-spacing: 0.5px;
       line-height: normal;
       margin: 15px 0 0;
-      height: 11vh;
+      height: 70px;
       padding: 3px 10px;
       overflow: auto;
       width: 270px;
@@ -57,10 +58,10 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0;
-    margin: -5px 10px;
+    margin: -5px 5px;
 
     &__radio-button {
-      color: $white-box;
+      color: $blue-logo-darkest;
       font-family: $lexend;
       font-size: 0.675rem;
       font-weight: 500;
@@ -77,11 +78,11 @@
       }
 
       .delete-icon {
-        color: $gray-box;
+        color: $blue-logo-darkest;
         font-size: 18px;
 
         &:hover {
-          color: $white-hover;
+          color: $blue-logo;
         }
       }
     }

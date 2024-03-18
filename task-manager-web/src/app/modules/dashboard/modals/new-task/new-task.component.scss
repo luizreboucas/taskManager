@@ -1,8 +1,9 @@
 @import '/src/styles/variables.scss';
 
 .task {
-  height: 400px;
-  background-color: $blue-logo;
+  height: 420px;
+  background: $blue-clear-background;
+  border: 5px solid $white;
 
   &__form {
     display: flex;
@@ -11,8 +12,8 @@
   }
 
   .task-close {
-    color: $white-box;
-    margin-left: 370px;
+    color: $blue-logo-darkest;
+    margin-left: 380px;
     padding-top: 5px;
 
     &:hover {
@@ -25,7 +26,7 @@
     padding-top: 0;
 
     &__label {
-      color: $white-box;
+      color: $blue-logo-darkest;
       font-family: $lexend;
       font-size: 0.75rem;
       font-weight: 700;
@@ -42,7 +43,7 @@
     &__title {
       background: none;
       border: none;
-      color: $white-box;
+      color: $blue-logo-darkest;
       font-family: $lexend;
       font-size: 1rem;
       font-weight: 700;
@@ -52,13 +53,17 @@
       width: 315px;
     }
 
+    input {
+      border-bottom: 2px solid $blue-logo-darkest;
+    }
+
     input:focus {
-      border-bottom: 2px solid $white-box;
+      border-bottom: 2px solid $blue-logo;
     }
   }
 
   .task-divider {
-    background-color: $white-hover;
+    background-color: $blue-logo;
     height: 7px;
     width: 100%;
   }
@@ -71,14 +76,18 @@
       color: $blue-logo-darkest;
       font-family: $lexend;
       font-size: 0.675rem;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.5px;
       line-height: normal;
       margin: 15px 0 0;
-      height: 110px;
+      height: 170px;
       padding: 3px 10px;
       overflow: auto;
       width: 100%;
+    }
+
+    textarea:focus {
+      border: 2px solid $blue-logo;
     }
   }
 
@@ -87,12 +96,11 @@
     align-items: center;
     flex-direction: column;
     padding: 0;
-    padding-top: 35px;
-    margin: -5px 10px;
-    gap: 25px;
+    margin: 0 16px;
+    gap: 15px;
 
     &__radio-button {
-      color: $white-box;
+      color: $blue-logo-darkest;
       font-family: $lexend;
       font-size: 0.675rem;
       font-weight: 500;

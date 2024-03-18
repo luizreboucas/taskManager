@@ -81,7 +81,7 @@ export class NewTaskComponent implements OnInit {
         this.dividerColor = PriorityColors.LOW;
         break;
       default:
-        this.dividerColor = PriorityColors.DEFAULT;
+        this.dividerColor = PriorityColors.LOGO;
         break;
     }
   }
