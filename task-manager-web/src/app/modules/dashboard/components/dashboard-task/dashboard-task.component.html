@@ -6,6 +6,7 @@
           class="task-header__title"
           type="text"
           matInput
+          placeholder="(Nome)"
           formControlName="nome"
         />
       </mat-card-title>
@@ -13,7 +14,7 @@
 
     <mat-divider
       class="task-divider"
-      [ngStyle]="{ 'background-color': task.cor }"
+      [ngStyle]="{ 'background-color': editForm.controls['cor'].value }"
     ></mat-divider>
 
     <mat-card-content class="task-description">
@@ -21,6 +22,7 @@
         class="task-description__text"
         type="text"
         matInput
+        placeholder="(Descrição)"
         formControlName="descricao"
       ></textarea>
     </mat-card-content>
@@ -50,7 +52,11 @@
         </mat-radio-button>
       </mat-radio-group>
 
-      <button mat-button class="task-actions__buttons" (click)="deleteTask()">
+      <button
+        mat-button
+        class="task-actions__buttons"
+        (click)="openModalTaskRemoval()"
+      >
         <span class="material-symbols-outlined delete-icon"> delete </span>
       </button>
     </mat-card-actions>

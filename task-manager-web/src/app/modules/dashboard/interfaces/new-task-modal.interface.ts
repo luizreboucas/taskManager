@@ -1,6 +1,6 @@
 export interface NewTaskModal {
   nome: string;
   descricao: string;
-  prioridade: number;
+  prioridade: string;
   usuario: string;
 }

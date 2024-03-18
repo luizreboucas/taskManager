@@ -11,20 +11,15 @@
       <h2 class="header__page" (click)="navigate('/dashboard')">TO-DOs</h2>
     </span>
   </div>
-  <div class="header__login">
-    <mat-icon
-      *ngIf="!isAuthenticated"
-      class="header__login--icon"
-      (click)="navigate('/login')"
-    >
-      login
-    </mat-icon>
-    <mat-icon
-      *ngIf="isAuthenticated"
-      class="header__login--icon"
-      (click)="logout()"
-    >
-      logout
-    </mat-icon>
+  <div class="header__buttons">
+    <button *ngIf="!isAuthenticated" class="login" (click)="navigate('/login')">
+      <h1 class="login__description">Login</h1>
+      <mat-icon class="login__icon"> login </mat-icon>
+    </button>
+
+    <button *ngIf="isAuthenticated" class="login" (click)="logout()">
+      <h1 class="login__description">Sair</h1>
+      <mat-icon class="login__icon"> logout </mat-icon>
+    </button>
   </div>
 </mat-toolbar>

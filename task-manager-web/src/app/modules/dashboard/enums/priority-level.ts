@@ -8,5 +8,6 @@ export enum PriorityColors {
   DEFAULT = '#f7f5f5',
   HIGH = '#db2f49',
   MEDIUM = '#fa6845',
-  LOW = '#fca553'
+  LOW = '#fca553',
+  LOGO = '#008585'
 }
